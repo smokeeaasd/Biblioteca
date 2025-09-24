@@ -11,15 +11,15 @@ abstract class DAO extends PDO
     public function __construct()
     {
         // mysql:host=localhost:3307;dbname=biblioteca
-        $dsn = "mysql:host=" . $_ENV['db']['host'] . ";dbname=" 
-             . $_ENV['db']['database'];
+        $dsn = "mysql:host=" . $_ENV['DB_HOST'] . ";dbname=" 
+             . $_ENV['DB_NAME'];
 
         if (self::$conexao == null) 
         {
             self::$conexao = new PDO(
                 $dsn,
-                $_ENV['db']['user'],
-                $_ENV['db']['pass'],
+                $_ENV['DB_USER'],
+                $_ENV['DB_PASS'],
                 [
                     PDO::ATTR_PERSISTENT => true,                    
                     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'
